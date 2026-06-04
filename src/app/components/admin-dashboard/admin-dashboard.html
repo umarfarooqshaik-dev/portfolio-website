@@ -1,0 +1,242 @@
+<nav>
+  <div class="navdiv">
+
+    <div class="logo">
+      <span class="logotext" style="color:#e81155;">U</span>
+      <span class="logotext">mar.</span>
+    </div>
+
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          style="
+            background:#e81155;
+            padding:10px 20px;
+            border-radius:6px;">
+          Logout
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<section class="admin-container">
+
+  <h1 class="sub-title">
+    <span>Admin</span>
+    <span style="color:#e81155;"> Dashboard</span>
+  </h1>
+
+  <!-- Stats Cards -->
+  <div class="stats-container">
+
+  <div class="stat-card">
+    <h3>{{ skills.length }}</h3>
+    <p>Skills</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>{{ projects.length }}</h3>
+    <p>Projects</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>{{ users.length }}</h3>
+    <p>Contacts</p>
+  </div>
+
+</div>
+
+  <div class="action-buttons">
+
+    <button (click)="openSkillModal()">
+      Add Skill
+    </button>
+
+    <button (click)="openProjectModal()">
+      Add Project
+    </button>
+
+  </div>
+
+  <!-- Project Modal -->
+  <div class="modal" *ngIf="showProjectModal">
+
+    <div class="modal-content">
+
+      <span
+        class="close"
+        (click)="closeProjectModal()">
+        ✕
+      </span>
+
+      <h2>Add New Project</h2>
+
+      <input
+        type="text"
+        placeholder="Project Heading"
+        [(ngModel)]="newProject.heading"
+      />
+
+      <textarea
+        rows="4"
+        placeholder="Project Description"
+        [(ngModel)]="newProject.description">
+      </textarea>
+
+      <input
+        type="text"
+        placeholder="Project Link"
+        [(ngModel)]="newProject.link"
+      />
+
+      <button (click)="saveProject()">
+        Save Project
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Skill Modal -->
+  <div class="modal" *ngIf="showSkillModal">
+
+    <div class="modal-content">
+
+      <span
+        class="close"
+        (click)="closeSkillModal()">
+        ✕
+      </span>
+
+      <h2>Add New Skill</h2>
+
+      <input
+        type="text"
+        placeholder="Skill Heading"
+        [(ngModel)]="newSkill.heading"
+      />
+
+      <textarea
+        rows="4"
+        placeholder="Skill Description"
+        [(ngModel)]="newSkill.description">
+      </textarea>
+
+      <input
+        type="text"
+        placeholder="Skill Link"
+        [(ngModel)]="newSkill.link"
+      />
+
+      <button (click)="saveSkill()">
+        Save Skill
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Skills Section -->
+  <!-- Skills Section -->
+<div class="section-card">
+
+  <h2>
+    My <span style="color:#e81155;">Skills</span>
+  </h2>
+
+  <div class="work-list">
+
+    <div
+      *ngFor="let skill of skills"
+      class="project-item">
+
+      <h3>{{ skill.heading }}</h3>
+
+      <p>{{ skill.description }}</p>
+
+      <a
+        [href]="skill.link"
+        target="_blank">
+        Skill Link
+      </a>
+
+      <button
+        class="delete-btn"
+        (click)="deleteSkill(skill.id!)">
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Projects Section -->
+<div class="section-card">
+
+  <h2>
+    Recent <span style="color:#e81155;">Projects</span>
+  </h2>
+
+  <div class="work-list">
+
+    <div
+      *ngFor="let project of projects"
+      class="project-item">
+
+      <h3>{{ project.heading }}</h3>
+
+      <p>{{ project.description }}</p>
+
+      <a
+        [href]="project.link"
+        target="_blank">
+        Project Link
+      </a>
+
+      <button
+        class="delete-btn"
+        (click)="deleteProject(project.id!)">
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- User Responses -->
+<div class="section-card">
+
+  <h2>
+    User <span style="color:#e81155;">Responses</span>
+  </h2>
+
+  <div class="work-list">
+
+    <div
+      *ngFor="let user of users"
+      class="project-item">
+
+      <h3>{{ user.name }}</h3>
+
+      <p><strong>Email:</strong> {{ user.email }}</p>
+
+      <p><strong>Phone:</strong> {{ user.phoneNumber }}</p>
+
+      <p><strong>Subject:</strong> {{ user.subject }}</p>
+
+      <p><strong>Message:</strong> {{ user.message }}</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>

@@ -1,0 +1,54 @@
+.skills {
+  margin-bottom: 20px;
+}
+
+.container {
+  padding: 20px 10%;
+}
+
+.sub-title {
+  font-size: 42px;
+  font-weight: 600;
+  padding-top: 100px;
+}
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.project-item {
+  flex: 1 1 250px;
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-8px);
+}
+
+.project-item h3 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.project-item p {
+  color: white;
+}
+
+@media screen and (max-width:768px) {
+  .project-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width:480px) {
+  .project-item {
+    flex: 1 1 100%;
+  }
+}

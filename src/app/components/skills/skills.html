@@ -1,0 +1,32 @@
+<section class="skills" id="skills">
+
+  <div class="container">
+
+    <h1 class="sub-title">
+      <span>My</span>
+      <span style="color:#e81155;"> Skills</span>
+    </h1>
+
+    <div class="work-list">
+
+      <div
+        class="project-item"
+        *ngFor="let skill of skills">
+
+        <h3>{{ skill.heading }}</h3>
+
+        <p>{{ skill.description }}</p>
+
+        <a
+          [href]="skill.link"
+          target="_blank">
+          Learn More
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

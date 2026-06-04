@@ -1,0 +1,111 @@
+<section class="contact" id="contact">
+
+  <h1 class="sub-title" id="contact-heading">
+    <span>Contact</span>
+    <span style="color:#e81155;"> Me</span>
+  </h1>
+
+  <form #contactForm="ngForm"
+        (ngSubmit)="submitForm(contactForm)">
+
+    <!-- Name -->
+    <input
+      type="text"
+      placeholder="Name"
+      name="name"
+      [(ngModel)]="user.name"
+      #name="ngModel"
+      required
+      minlength="3"
+      maxlength="50"
+    />
+
+    <div class="error" *ngIf="name.invalid && name.touched">
+      <small *ngIf="name.errors?.['required']">
+        Name is required
+      </small>
+
+      <small *ngIf="name.errors?.['minlength']">
+        Name must be at least 3 characters
+      </small>
+    </div>
+
+    <!-- Email -->
+    <input
+      type="email"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      required
+      email
+    />
+
+    <div class="error" *ngIf="email.invalid && email.touched">
+      <small>Please enter a valid email address</small>
+    </div>
+
+    <!-- Phone -->
+    <input
+      type="tel"
+      placeholder="Phone Number"
+      name="phoneNumber"
+      [(ngModel)]="user.phoneNumber"
+      #phone="ngModel"
+      required
+      pattern="[0-9]{10}"
+    />
+
+    <div class="error" *ngIf="phone.invalid && phone.touched">
+      <small>Phone number must contain exactly 10 digits</small>
+    </div>
+
+    <!-- Subject -->
+    <input
+      type="text"
+      placeholder="Subject"
+      name="subject"
+      [(ngModel)]="user.subject"
+      #subject="ngModel"
+      required
+      minlength="5"
+      maxlength="100"
+    />
+
+    <div class="error" *ngIf="subject.invalid && subject.touched">
+      <small>Subject must contain 5 to 100 characters</small>
+    </div>
+
+    <!-- Message -->
+    <textarea
+      rows="5"
+      placeholder="Your Message"
+      name="message"
+      [(ngModel)]="user.message"
+      #message="ngModel"
+      required
+      minlength="10"
+      maxlength="500">
+    </textarea>
+
+    <div class="error" *ngIf="message.invalid && message.touched">
+      <small>Message must contain 10 to 500 characters</small>
+    </div>
+
+    <button
+      type="submit">
+
+      Send Message
+
+    </button>
+
+  </form>
+
+  <div class="icon-div">
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-x-twitter"></i>
+  </div>
+
+</section>
