@@ -1,0 +1,61 @@
+<nav>
+  <div class="navdiv">
+
+    <div class="logo">
+      <span class="logotext" style="color:#e81155;">U</span>
+      <span class="logotext">mar.</span>
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+      <li>
+        <a href="#" (click)="openLoginModal($event)">
+          Admin Login
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- Admin Login Modal -->
+<div class="modal" *ngIf="showModal">
+
+  <div class="modal-content">
+
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <h3>Admin Login</h3>
+
+    <form (submit)="login(); $event.preventDefault()">
+
+      <input
+        type="text"
+        placeholder="Enter User Name"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+
+      <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
